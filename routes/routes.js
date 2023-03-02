@@ -102,3 +102,19 @@ router.delete('/delete/:_id', async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 })
+// Route to Homepage
+router.get('/', (req, res) => {
+    res.sendFile(__dirname + '/static/index.html');
+  });
+
+// Route to Login Page
+router.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/static/login.html');
+  });
+
+router.post('/login', (req, res) => {
+    // Insert Login Code Here
+    let username = req.body.username;
+    let password = req.body.password;
+    res.send(`Username: ${username} Password: ${password}`);
+  });
